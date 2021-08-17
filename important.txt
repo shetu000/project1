@@ -1,0 +1,106 @@
+
+
+project 0 link : https://github.com/AjaySingala/P0-Python-MongoDB.git
+project 1 link : https://github.com/AjaySingala/P2-MovieLens.git
+
+-------------------------------------------
+maria_dev login
+
+open gitbash and type
+ssh maria_dev@sandbox-hdp.hortonworks.com -p 2222
+pw : maria_dev
+
+
+---------------------------------------------------------
+Root login
+
+
+open gitbash and type
+ssh root@sandbox-hdp.hortonworks.com -p 2222
+pw : my common pw
+--------------------------------------------------------------------------------
+********url of download text files of books ********
+
+www.gutenberg.org/etex/20417
+
+(here you will get e-books in text format)
+copy the content of e-book and save it to a notepad
+
+-----------------------------------------------------------------------------------
+
+git repo link :
+
+https://github.com/AjaySingala/July2021BigDataPython.git
+-------------------------------------------------------------------------------------
+connect as root 
+ 
+su - hdfs
+hdfs dfsadmin -safemode get
+hdfs dfsadmin -safemode leave
+after that go to ambari
+scroll down
+restrat all services
+---------------------------------------------------------------------------------
+Note:-alwys start mongod than mongo [shell]
+
+#MongoDb Download url : https://www.mongodb.com/try/download
+			select community server->download
+
+->after downloading the mongodb follow below steps :
+  next->next-> click on Custom-> Remember the location->Next-> uncheck the box [Install MongoD as a Service] because it will automatically start when we start our computer spo need of that because we will start mongodb manually whenever I want
+  Next-> unckeck the box[Install MongoDB Compass](because no need of mongodb gui)->Next-> Install
+
+
+#After installing go to the mongodb folder "C:\Program Files\MongoDB\Server\5.0\
+open bin folder
+here we will be using 2 application(one is mongod and another is mongos)
+mongod is the database service [ always start it first , so that it initiate the databases]
+mongo is shell [after starting mongod ,start mongo shell]
+
+#first create the folder where you want to initiate mongodb database, follow below instructions:
+1.open cmd and create folder named db
+->cd \
+->mkdir data 
+->cd data
+->mkdir db
+->cd db ice]
+
+2.cd \
+->"C:\Program Files\MongoDB\Server\5.0\bin\mongod" --dbpath="c:\data\db" [Note:- --dbpath is our created folder path][this whole command will start mongodb service]
+
+3.open another cmd for starting mongo shell
+->"C:\Program Files\MongoDB\Server\5.0\bin\mongo"
+->show dbs
+
+-----------------------------------------------------------------------------------
+#DownloAD MongoDB Database Tool
+
+url:-docs.mongodb.com/database-tools/installation/installation
+
+scroll down and stop here[Download the Database Tools MSI installer] 
+open MongoDB download center
+click on download and remember the path[ C:\ProgramFiles\MongoDB]
+
+
+#json data url : media.mongodb.org/zips.json
+copy the content in a notepad and save as Zips.json on c drive create folder name temp and paste here
+
+open another cmd for import the json file into database
+->go the folder where the json file is saved
+->cd temp
+->"C:\Program Files\MongoDB\MongoDB_Import\bin\mongoimport" --db products --collection zipcodes --type json --file zips.json
+
+------------------------------------------------------------------------------------
+#sandbox vm download:
+
+download url : https://www.cloudera.com/downloads/hortonworks-sandbox/hdp.html
+Note:- select virtual box and after that version 2.6.5 than download
+---------------------------------------------------------------------------------
+
+spark 
+
+CONNECT spark with this command :
+login to maria_dev
+spark-shell 
+than go to this url ->http://localhost:4040/ [this url shows all current spark jobs that are executing ] 
+----------------------------------------------------------------------------------
